@@ -23,7 +23,12 @@ export default function App() {
 
   const renderItem = ({ item }) => (
     <View style={styles.taskContainer}>
-      <CheckBox checked={item.completed} onPress={() => toggleTaskCompletion(item.key)} />
+      <CheckBox
+        checked={item.completed}
+        onPress={() => toggleTaskCompletion(item.key)}
+        containerStyle={styles.checkboxContainer}
+        checkedColor="#4CAF50"
+      />
       <Text style={[styles.taskText, item.completed && styles.completedTask]}>
         {item.description}
       </Text>
@@ -34,13 +39,13 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <FlatList data={tasks} renderItem={renderItem} />
 
-      {/* Updated Input Box */}
+      {/* Updated Input & Button */}
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
           value={newTask}
           onChangeText={setNewTask}
-          placeholder="Enter new task..."
+          placeholder="Enter a new task..."
           placeholderTextColor="#999"
         />
         <TouchableOpacity style={styles.addButton} onPress={addTask}>
@@ -61,6 +66,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
+    borderBottomWidth: 1,
+    borderColor: "#eee",
   },
   taskText: {
     fontSize: 18,
@@ -71,6 +78,11 @@ const styles = StyleSheet.create({
     textDecorationStyle: 'solid',
     color: "gray",
   },
+  checkboxContainer: {
+    backgroundColor: "transparent",
+    borderWidth: 0,
+    padding: 0,
+  },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -78,7 +90,11 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     backgroundColor: "#f9f9f9",
-
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
   },
   input: {
     flex: 1,
@@ -92,12 +108,16 @@ const styles = StyleSheet.create({
   },
   addButton: {
     marginLeft: 10,
-    paddingVertical: 10,
+    paddingVertical: 12,
     paddingHorizontal: 20,
-    backgroundColor: "#007AFF",
     borderRadius: 8,
+    backgroundColor: "#4CAF50", 
     alignItems: "center",
     justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   },
   addButtonText: {
     color: "#fff",
@@ -105,3 +125,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
