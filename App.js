@@ -4,7 +4,7 @@ import { CheckBox } from '@rneui/themed';
 
 export default function App() {
   const [tasks, setTasks] = useState([
-    { key: "1", description: "Buy rigatoni pasta", completed: false },
+    { key: "1", description: "Buy rigatoni pasta!", completed: false },
     { key: "2", description: "Complete my portfolio", completed: false },
   ]);
 
