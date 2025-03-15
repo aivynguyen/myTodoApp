@@ -45,7 +45,7 @@ export default function App() {
           style={styles.input}
           value={newTask}
           onChangeText={setNewTask}
-          placeholder="Enter a new task..."
+          placeholder="Add a new task..."
           placeholderTextColor="#999"
         />
         <TouchableOpacity style={styles.addButton} onPress={addTask}>
