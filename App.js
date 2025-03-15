@@ -39,7 +39,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <FlatList data={tasks} renderItem={renderItem} />
 
-      {/* Updated Input & Button */}
+      {}
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
